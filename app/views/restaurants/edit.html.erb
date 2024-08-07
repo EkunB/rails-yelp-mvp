@@ -1,0 +1,20 @@
+<h1 class="mb-md-5">What do you want to change ?</h1>
+
+<div>
+  <h2><%= @restaurant.name %></h2>
+
+  <h3>Actual category</h3>
+  <p><%= @restaurant.category %></p>
+
+  <h3>Actual address</h3>
+  <p><%= @restaurant.address %></p>
+
+  <h3>Actual phone number</h3>
+  <p><%= @restaurant.phone_number %></p>
+</div>
+
+<%= render "form", restaurant: @restaurant %>
+
+<div class="mt-md-4">
+  <%= link_to "Back to restaurants' list", restaurants_path, class:"btn btn-primary" %>
+</div>

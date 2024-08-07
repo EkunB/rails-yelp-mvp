@@ -1,0 +1,36 @@
+<h1 class="mb-md-5"><%= @restaurant.name %></h1>
+
+<div class="container mb-md-3">
+  <h3>Category</h3>
+  <p><%= @restaurant.category %></p>
+
+  <h3>Address</h3>
+  <p><%= @restaurant.address %></p>
+
+  <h3>Phone number</h3>
+  <p><%= @restaurant.phone_number %></p>
+</div>
+
+<div class="container mb-md-3">
+  <ul class="list-unstyled">
+    <% @restaurant.reviews.each do |review| %>
+      <li><%= review.rating %> / 5 - <%= review.content %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="mb-md-2">
+  <%= link_to "Edit this restaurant's infos", edit_restaurant_path, class:"btn btn-info" %>
+</div>
+
+<div class="mt-md-2 mb-md-2">
+  <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class:"btn btn-success" %>
+</div>
+
+<div class="mt-md-2">
+  <%= link_to "Back to restaurants' list", restaurants_path, class:"btn btn-primary" %>
+</div>
+
+<div class="mt-md-4">
+  <%= button_to "Delete this restaurant", @restaurant, class:"btn btn-danger", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Do you really want to delete '#{@restaurant.name}' ?" } %>
+</div>
